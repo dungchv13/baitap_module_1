@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai_4</title>
+</head>
+<body>
+<h1>tinh diem trung binh</h1>
+Ho va ten :<input type="text"><br><br>
+Diem toan :<input type="number" id="toan"><br><br>
+Diem van :<input type="number" id="van"><br><br>
+<button onclick="ketQua()">ket qua</button><br>
+<h3 id="result"></h3>
+<script>
+    function ketQua(){
+        let a = parseInt(document.getElementById('toan').value);
+        let b = parseInt(document.getElementById('van').value);
+        document.getElementById('result').innerHTML = 'Diem trung binh cua hoc sinh la: '+(a+b)/2;
+    }
+</script>
+</body>
+</html>

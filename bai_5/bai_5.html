@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai_5</title>
+    <style>
+        button{
+            width: 50px;
+            height: 22px;
+        }
+    </style>
+</head>
+<body>
+<h1>May tinh don gian</h1>
+<table>
+    <tr>
+        <td>So thu nhat:</td>
+        <td><input type="text" id="a"></td>
+        <td><button onclick="tinh(1)">+</button></td>
+        <td><button onclick="tinh(2)">-</button></td>
+    </tr>
+    <tr>
+        <td>So thu hai:</td>
+        <td><input type="text" id="b"></td>
+        <td><button onclick="tinh(3)">*</button></td>
+        <td><button onclick="tinh(4)">/</button></td>
+    </tr>
+    <tr>
+        <td>Ket qua:</td>
+        <td id="result" style="border: black 1px solid" ></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<script>
+    function tinh(mark){
+        let x = document.getElementById('a').value;
+        let y = document.getElementById('b').value;
+        let a = parseFloat(x);
+        let b = parseFloat(y);
+        if(a + '' !== x || b + '' !== y){
+            alert('so ban nhap ko hop le');
+        }else{
+            switch (mark) {
+                case 1:
+                    document.getElementById('result').innerHTML=(a+b);
+                    break;
+                case 2:
+                    document.getElementById('result').innerHTML=(a-b);
+                    break;
+                case 3:
+                    document.getElementById('result').innerHTML=(a*b);
+                    break;
+                case 4:
+                    document.getElementById('result').innerHTML=(a/b);
+                    break;
+            }
+        }
+    }
+</script>
+</body>
+</html>

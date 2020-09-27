@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai_6</title>
+</head>
+<body>
+<script>
+    let arrs = [
+        [1,-2,6,'x',3,5,'b',8,4,'y',4,4,'n'],
+        ['a',4,6,'7',3,5,'8',8,4,7,'4',4,3],
+        [1,4,-1,7,3,'c',8,'h',4,7,'g',4,3],
+        [1,4,6,'z',3,5,-9,8,'d',7,4,'e',3]
+    ];
+    // check phan tu co phai la so nguyen
+    function isNumber(a){
+        let x = parseInt(a);
+        if (a === x){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    // tinh tong cac so nguyen duong
+    // in cac chuoi va cac so nguyen am,thay doi chung thanh so 0
+    let sumP = 0;
+    let array2 = [];
+    for(let i = 0;i < arrs.length;i++){
+        for(let j = 0;j < arrs[i].length;j++){
+            if(arrs[i][j] > 0 && isNumber(arrs[i][j])){
+                sumP += arrs[i][j];
+            }else{
+                array2.push(arrs[i][j]);
+                if(isNumber(arrs[i][j])===false){
+                    arrs[i][j] = 0;
+                }
+            }
+        }
+    }
+    // so nguyen lon nhat trong mang 2 chieu
+    let max = arrs[0][0];
+    for(let i = 0;i < arrs.length;i++){
+        for(let j = 0;j < arrs[i].length;j++){
+            if(max < arrs[i][j]){
+                max = arrs[i][j];
+            }
+        }
+    }
+    // tim so lan lap cua so nguyen
+    function checkXuatHien(n,arr){
+        for(let i = 0;i < arr.length;i++){
+            if(n === arr[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+    function check(arr){
+        let numbers = [];
+        let counts = [];
+
+        for(let i = 0;i < arr.length;i++){
+            if(checkXuatHien(arr[i],numbers) === false){
+                numbers.push(arr[i]);
+            }
+        }
+
+        for(let i = 0;i < numbers.length;i++){
+            let count = 0;
+            for(let j = 0;j < arr.length;j++){
+                if(numbers[i]===arr[j]){
+                    count++;
+                }
+            }
+            counts.push(count);
+        }
+        console.log('cac so nguyen xuat hien trong mang la:'+numbers);
+        console.log('so lan xuat hien  lan luot la        :'+counts);
+    }
+
+
+
+    //ket qua
+    console.log('* tong cac so nguyen duong trong mang la: '+sumP);
+    console.log('* hien thi cac gia tri nguyen am va chuoi trong mang: '+array2);
+    console.log('* thay doi cac gia tri chuoi bang so 0: ');
+    console.log(arrs);
+    console.log('* gia tri nguyen lon nhat trong mang la: '+max);
+    console.log('* so lan lap cac so nguyen tai moi hang: ')
+    for(let i = 0;i < arrs.length;i++){
+        console.log('arrs['+i+']:')
+        check(arrs[i]);
+    }
+
+
+</script>
+</body>
+</html>
